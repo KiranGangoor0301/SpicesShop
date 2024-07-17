@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5 text-center">
+    <h1 class="display-4">You Have Successfully Logged Out</h1>
+    <p class="lead">Thank you for visiting Sri Annapoorneshwari Products. We hope to see you again soon!</p>
+    <div class="mt-4">
+        <a href="{% url 'login' %}" class="btn btn-primary btn-lg">Login Again</a>
+        <a href="{% url 'product_list' %}" class="btn btn-secondary btn-lg">Back to Home</a>
+    </div>
+</div>
+
+<!-- Optional: Add a nice background image or pattern -->
+<style>
+    body {
+        background: url('{% static "images/logout-background.jpg" %}') no-repeat center center fixed;
+        background-size: cover;
+        color: white;
+    }
+</style>
+{% endblock %}

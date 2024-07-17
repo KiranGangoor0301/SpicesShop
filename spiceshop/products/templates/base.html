@@ -1,0 +1,273 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sri Annapoorneshwari Products</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        
+        main {
+            flex: 1;
+        }
+        
+        .navbar {
+            background-color: #212529; /* Darker navbar background */
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            border: none; /* Remove border */
+        }
+        
+        .navbar-brand, .nav-link {
+            color: white; /* White text for brand and links */
+            font-weight: bold;
+            transition: color 0.3s, background-color 0.3s;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: #ffc107; /* Yellow text on hover and active */
+        }
+        
+        .navbar-toggler {
+            border: none; /* Remove border */
+        }
+        
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30' fill='white'%3E%3Cpath stroke='white' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); /* Custom color for toggler icon */
+        }
+        
+        .navbar .navbar-nav .nav-item .nav-link {
+            padding: 15px 20px; /* Add some padding to the links */
+        }
+        
+        .search-form {
+            display: flex;
+            justify-content: center; /* Center the form horizontally */
+            align-items: center; /* Center items vertically within the form */
+            margin-left: auto; /* Push the search form to the right */
+            margin-right: auto; /* Push the search form to the left */
+            width: 100%;
+        }
+        
+        .search-input {
+            margin-right: 10px;
+            margin-left: 10px;
+            /* Ensure consistency with other form controls */
+            background-color: transparent; /* Make the background transparent */
+            border: 1px solid #fff; /* Set a white border */
+            color: #fff; /* Set the text color to white */
+        }
+        
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.7); /* Set a semi-transparent white color for the placeholder text */
+        }
+        
+        @media (min-width: 992px) {
+            .navbar-nav {
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+            }
+        
+            .nav-item {
+                display: flex;
+                align-items: center;
+            }
+        
+            .nav-link {
+                padding: 0 15px;
+            }
+        }
+
+        .Logo {
+            border-radius: 100px;
+            height: 40px;
+        }
+
+        /* Enhanced Footer Styles */
+        footer {
+            background-color: #212529; /* Dark background color */
+            color: #f8f9fa; /* Light text color */
+            padding: 40px 0; /* Add padding for better spacing */
+            border-top: 2px solid #ffc107; /* Yellow border at the top */
+        }
+
+        .footer-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .footer-left, .footer-right {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Center content vertically */
+        }
+
+        .footer-left {
+            align-items: flex-start;
+        }
+
+        .footer-right {
+            align-items: flex-end;
+        }
+
+        .footer-contact-details {
+            margin-bottom: 30px;
+        }
+
+        .footer-contact-details h5 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #ffc107; /* Yellow color for the heading */
+        }
+
+        .footer-contact-details ul {
+            list-style: none; /* Remove bullets */
+            padding: 0; /* Remove default padding */
+            margin-bottom: 20px;
+        }
+
+        .footer-contact-details li {
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .footer-contact-details img {
+            max-width: 150px;
+            height: auto;
+            margin-top: 15px;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .footer-social a {
+            color: #f8f9fa; /* Light text color */
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .footer-social a:hover {
+            color: #ffc107; /* Yellow color on hover */
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #343a40; /* Border between footer content and copyright */
+            padding-top: 15px;
+            margin-top: 20px;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="{% url 'product_list' %}">
+                    <img src="{% static 'images/page1.png' %}" alt="Logo" class="Logo" height="50" width="100">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'powder_products' %}">Powders</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'veg_products' %}">Veg</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'nonveg_products' %}">Non-Veg</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'sweets_products' %}">Sweets</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'chats_products' %}">Chats</a>
+                        </li>
+                        <li class="nav-item">
+                            <form method="get" action="{% url 'product_list' %}" class="form-inline my-2 my-lg-0 mx-auto search-form">
+                                <input class="form-control mr-sm-2 search-input" type="text" name="q" placeholder="Search for products">
+                                <button class="btn btn-outline-light my-2 my-sm-0 search-button" type="submit">Search</button>
+                            </form>
+                        </li>
+                        {% if user.is_authenticated %}
+                            <li class="nav-item">
+                                <form action="{% url 'logout' %}" method="post" class="d-inline">
+                                    {% csrf_token %}
+                                    <button class="btn btn-link nav-link mx-4">Logout</button>
+                                </form>
+                            </li>
+                        {% else %}
+                            <li class="nav-item"><a class="nav-link mx-4" href="{% url 'login' %}">Login</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Register</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="container mt-4">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="row">
+                <div class="col-md-6 footer-left">
+                    <div class="footer-contact-details">
+                        <h5>Contact Details</h5>
+                        <ul>
+                            <li>Order will be taken for the above menu.</li>
+                            <li>Order should be placed before a week.</li>
+                            <li>We undertake orders for small functions like kitty parties, get-togethers, bashes, etc (serves a minimum of 150-200 members).</li>
+                            <li>Happening now:<br><strong>Nibble Jubilee Snack Bar at St. Joseph University</strong></li>
+                        </ul>
+                        <img src="{% static 'images/image.png' %}" alt="QR Code">
+                    </div>
+                </div>
+                <div class="col-md-6 footer-right">
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/SriAnnapoorneshwariProducts" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/SriAnnapoorneshwariProducts" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/SriAnnapoorneshwariProducts" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/sriannapoorneshwariproducts" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom text-center mt-4">
+                <p>&copy; 2024 Sri Annapoorneshwari Products. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Font Awesome for social media icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

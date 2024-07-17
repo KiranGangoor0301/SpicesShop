@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Search Results</title>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="text-center">Search Results:</h1>
+    <div class="row mt-4">
+        {% if allproducts %}
+            {% for product in allproducts %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p class="card-text">{{ product.description }}</p>
+                        <p class="card-text">Price: {{ product.price }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p>No products found.</p>
+        {% endif %}
+    </div>
+    
+    <!-- Search Suggestions -->
+    <div class="mt-4">
+        <label for="searchInput">Search:</label>
+        <input type="text" id="searchInput" class="form-control" placeholder="Search..." autocomplete="off">
+        <ul id="suggestionsList" class="list-group mt-2"></ul>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#searchInput').on('input', function() {
+            var query = $(this).val();
+            console.log('Current query:', query);  // Log the current query input
+            $.ajax({
+                url: '/search/suggest/',
+                data: {
+                    'query': query
+                },
+                dataType: 'json',
+                success: function(data) {
+                    console.log('Suggestions received:', data.suggestions);  // Log suggestions received
+                    var suggestionsList = $('#suggestionsList');
+                    suggestionsList.empty();
+                    $.each(data.suggestions, function(index, suggestion) {
+                        suggestionsList.append('<li class="list-group-item">' + suggestion + '</li>');
+                    });
+                },
+                error: function(error) {
+                    console.log('Error fetching suggestions:', error);  // Log errors if any
+                }
+            });
+        });
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    .card {
+        border: none; /* Remove default card border */
+        transition: transform 0.2s; /* Add smooth transform transition */
+    }
+
+    .card:hover {
+        transform: translateY(-5px); /* Add lift effect on hover */
+    }
+
+    .card-img-top {
+        height: 200px; /* Set fixed height for images */
+        object-fit: cover; /* Ensure images fill their containers */
+    }
+
+    .card-body {
+        padding: 1.25rem; /* Add padding inside the card body */
+    }
+
+    .card-title {
+        font-size: 1.25rem; /* Adjust title font size */
+    }
+
+    .card-text {
+        line-height: 1.5; /* Adjust text line height */
+    }
+</style>
+
+<h1>Powders </h1>
+<div class="row">
+    {% for product in products %}
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ product.name }}</h5>
+                <!-- <p class="card-text">{{ product.description }}</p> -->
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                        <!-- <a href="{% url 'product_detail' product.pk %}" class="btn btn-sm btn-outline-secondary">View</a> -->
+                    </div>
+                    <!-- <small class="text-muted">{{ product.price }}</small> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
