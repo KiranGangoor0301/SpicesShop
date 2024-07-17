@@ -32,6 +32,16 @@
             border: none; /* Remove border */
         }
         
+        .navbar-brand {
+            padding: 0; /* Remove default padding */
+        }
+        
+        .Logo {
+            height: 70px; /* Increase the height */
+            width: auto;  /* Maintain aspect ratio */
+            margin-right: 20px; /* Add some space to the right of the logo */
+        }
+        
         .navbar-brand, .nav-link {
             color: white; /* White text for brand and links */
             font-weight: bold;
@@ -44,6 +54,8 @@
         
         .navbar-toggler {
             border: none; /* Remove border */
+            padding: 0; /* Remove default padding */
+            margin-left: auto; /* Align the toggler to the right */
         }
         
         .navbar-toggler-icon {
@@ -92,11 +104,6 @@
             .nav-link {
                 padding: 0 15px;
             }
-        }
-
-        .Logo {
-            border-radius: 100px;
-            height: 40px;
         }
 
         /* Enhanced Footer Styles */
@@ -185,7 +192,7 @@
         <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <a class="navbar-brand" href="{% url 'product_list' %}">
-                    <img src="{% static 'images/page1.png' %}" alt="Logo" class="Logo" height="50" width="100">
+                    <img src="{% static 'images/page1.png' %}" alt="Logo" class="Logo" height="70">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -238,8 +245,8 @@
             <div class="row">
                 <div class="col-md-6 footer-left">
                     <div class="footer-contact-details">
-                        <h5>Contact Details</h5>
                         <ul>
+                            <h5>Contact Details</h5>
                             <li>Order will be taken for the above menu.</li>
                             <li>Order should be placed before a week.</li>
                             <li>We undertake orders for small functions like kitty parties, get-togethers, bashes, etc (serves a minimum of 150-200 members).</li>
