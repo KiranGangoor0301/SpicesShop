@@ -1,0 +1,12 @@
+django
+requests
+
+[amazon]
+boto3
+
+[google]
+google-api-python-client
+google-cloud-storage
+
+[microsoft]
+azure-storage-blob
