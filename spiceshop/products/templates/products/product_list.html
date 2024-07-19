@@ -64,8 +64,8 @@
                                 {% endif %}
                                 <div class="card-body" style="height: 150px;">
                                     <h5 class="card-title text-center">{{ product.name }}</h5>
-                                    <!-- <p class="card-text">Price: ₹{{ product.price }}</p> -->
-                                    <!-- <a href="{% url 'product_detail' product.pk %}" class="btn btn-primary">View Details</a> -->
+                                    <p class="card-text text-center">Price: ₹{{ product.price }}</p>
+                                    <a href="{% url 'product_detail' product.pk %}" class="btn btn-primary text-center">View Details</a>
                                 </div>
                             </div>
                         </div>
@@ -108,8 +108,8 @@
                                 {% endif %}
                                 <div class="card-body" style="height: 150px;">
                                     <h5 class="card-title text-center">{{ product.name }}</h5>
-                                    <!-- <p class="card-text">Price: ₹{{ product.price }}</p> -->
-                                    <!-- <a href="{% url 'product_detail' product.pk %}" class="btn btn-primary">View Details</a> -->
+                                    <p class="card-text">Price: ₹{{ product.price }}</p>
+                                    <a href="{% url 'product_detail' product.pk %}" class="btn btn-primary text-center">View Details</a>
                                 </div>
                             </div>
                         </div>
